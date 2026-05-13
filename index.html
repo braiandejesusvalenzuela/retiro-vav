@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscripción Retiro VAV</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #f3e5f5, #ede7f6);
+}
+
+.container {
+  max-width: 750px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  display: block;
+}
+
+.header {
+  text-align: center;
+  padding: 15px 6px 5px;
+}
+
+.header h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+  white-space: nowrap;
+  letter-spacing: -0.6px;
+  line-height: 1;
+  background: linear-gradient(90deg, #7e57c2, #42a5f5, #26a69a, #ab47bc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header h2 span {
+  color: #ff7043;
+  -webkit-text-fill-color: #ff7043;
+}
+
+.content {
+  padding: 15px;
+}
+
+/* DESCRIPCIÓN */
+.description {
+  background: #faf7ff;
+  padding: 6px;
+  border-radius: 14px;
+  border-left: 5px solid #7e57c2;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.03;
+  margin-bottom: 6px;
+  white-space: pre-line;
+}
+
+/* TEXTO DESTACADO */
+.highlight {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: -6px;
+  background: linear-gradient(135deg, #ffcc80, #ff8a65);
+  color: #4e342e;
+  padding: 4px 10px 4px 5px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  box-shadow: 0 3px 10px rgba(255,138,101,0.25);
+  width: fit-content;
+  max-width: 100%;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #7e57c2, #42a5f5);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+  margin: 2px 0 1px 0;
+  box-shadow: 0 4px 10px rgba(94,53,177,0.18);
+}
+
+/* TEXTO COSTO */
+.cost-text {
+  display: inline-block;
+  font-size: 8.5px;
+  font-weight: 700;
+  color: #444;
+  line-height: 1;
+  white-space: nowrap;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  letter-spacing: -0.2px;
+  transform: scaleX(0.97);
+  transform-origin: left;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* CONTACTO TITULO */
+.contact-title {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2px;
+  margin-bottom: 0;
+  margin-left: -6px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+  color: #6a1b9a;
+  font-weight: 700;
+  font-size: 12px;
+  border: 1px solid rgba(126,87,194,0.15);
+  box-shadow: 0 3px 10px rgba(126,87,194,0.12);
+  width: fit-content;
+  max-width: 100%;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* CONTACTO */
+.contact-box {
+  background: linear-gradient(135deg, #ede7f6, #f3e5f5);
+  border-left: 5px solid #7e57c2;
+  padding: 0 6px;
+  border-radius: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: fit-content;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #444;
+  font-size: 14px;
+  line-height: 0.95;
+  padding: 0;
+  margin: 0;
+  transition: 0.2s;
+}
+
+.contact a:hover {
+  transform: translateX(2px);
+}
+
+.contact img {
+  width: 13px;
+  height: 13px;
+}
+
+/* MENSAJE FINAL */
+.final-message {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: -2px;
+  margin-left: -3px;
+  padding: 3px 8px 3px 5px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+  border: 1px solid rgba(255,152,0,0.18);
+  font-weight: 700;
+  font-size: 14px;
+  color: #e65100;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(255,152,0,0.12);
+  width: fit-content;
+  max-width: 100%;
+  line-height: 1;
+}
+
+/* INFO BOX */
+.info-box {
+  background: linear-gradient(135deg, #ede7f6, #f3e5f5);
+  border-left: 5px solid #7e57c2;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin: 10px 0;
+  font-weight: 600;
+  font-size: 11px;
+  color: #333;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+}
+
+/* FORM */
+.question {
+  margin-top: 14px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  font-size: 14px;
+}
+
+button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7e57c2, #5e35b1);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* MENSAJE DE EXITO */
+.success-message {
+  display: none;
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  border: 1px solid rgba(76,175,80,0.18);
+  color: #2e7d32;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(76,175,80,0.12);
+  line-height: 1.3;
+}
+
+.success-message.show {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FOOTER */
+.footer {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-box {
+  background: linear-gradient(135deg, #ede7f6, #f3e5f5);
+  border-radius: 14px;
+  padding: 10px 18px;
+  text-align: center;
+  border: 1px solid rgba(126, 87, 194, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.footer-box span {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  color: #5e35b1;
+}
+
+.footer-box small {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: 2px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <div class="banner">
+      <img src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVAERvacZKa7e3oPzYFMDAicrak46ftFx_2GIUhOv0ggez1kcNg3TvNopwBL_iCl223SGKM_tWz0QZPYte-1yQlomSLITdOor42HMeV0rIZ_zTL3MeZEKj7myPT-eYh3UDnQtvA4lalB2if08eL_hQsqZaKlL2sQOuaYk4iq2JF3WivKm_nDx-6MIWtADEV60zdgmu81dJZuO644=w1022?key=KW2511ZaEuP-MNUVzteY_Q">
+    </div>
+
+    <div class="header">
+      <h2><span>🔥</span> Inscripción a RETIRO VAV 10 <span>🔥</span></h2>
+    </div>
+
+    <div class="content">
+
+<div class="description">
+
+🏡 Te queremos invitar al próximo retiro (VAV-10) que se realizará desde el <strong>Viernes 12 de Junio desde las 20:00 hasta el Domingo 14 de Junio a las 17:00 hs</strong> en la Casa de Retiros Nazaret ubicada en <strong>Leopoldo Lugones 3270, Ciudadela, Buenos Aires.</strong>
+Un retiro para tomarnos un tiempo para cada uno de nosotros. Veni a frenar, a conectar, a rencontrarte.
+
+<div class="highlight">Es momento de tomarte un tiempo para vos🧡</div>
+
+<div class="badge">¡Animate! ¡Vení a ver de qué se trata!</div>
+
+<div class="cost-text">
+"El costo del retiro no es impedimento para que puedas participar."
+</div>
+
+<div class="contact-title">
+👇Cualquier consulta podrán hacerla por👇
+</div>
+
+<div class="contact-box">
+<div class="contact">
+
+<a href="https://www.instagram.com/vengan.a.ver" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+<strong>@vengan.a.ver</strong>
+</a>
+
+<a href="https://wa.me/541164024348" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+<strong>Iván: 116402-4348</strong>
+</a>
+
+<a href="https://wa.me/541138135750" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+<strong>Solange: 113813-5750</strong>
+</a>
+
+</div>
+</div>
+
+<div class="final-message">
+🫂 ¡Nos vemos pronto! Te esperamos. 🔥
+</div>
+
+</div>
+
+<div class="info-box">
+Te dejamos los siguientes datos para completar:
+</div>
+
+<form>
+
+<div class="question">
+<label>📧 Correo electrónico</label>
+<input type="email" required>
+</div>
+
+<div class="question">
+<label>👤 Nombre y Apellido</label>
+<input type="text" required>
+</div>
+
+<div class="question">
+<label>🎂 Edad</label>
+<input type="number" required>
+</div>
+
+<div class="question">
+<label>📅 Fecha de nacimiento</label>
+<input type="date" required>
+</div>
+
+<div class="question">
+<label>📱 Teléfono celular</label>
+<input type="text" required>
+</div>
+
+<div class="question">
+<label>👨‍👩‍👧 Nombre y Apellido de contacto o familiar cercano</label>
+<input type="text" required>
+</div>
+
+<div class="question">
+<label>📞 Teléfono de contacto de dicha persona</label>
+<input type="text" required>
+</div>
+
+<div class="question">
+<label>📣 ¿Cómo te enteraste de la propuesta del retiro?</label>
+<input type="text" required>
+</div>
+
+<div class="question">
+<label>🤝 Si fue a partir de alguna persona que te invitó, ¿Quién fue?</label>
+<input type="text" required>
+</div>
+
+<div class="question">
+<label>👥 ¿Conocés a alguien que haya hecho el retiro?</label>
+<input type="text">
+</div>
+
+<div class="question">
+<label>💭 Breve comentario de por qué te motiva participar en el retiro</label>
+<textarea rows="4" required></textarea>
+</div>
+
+<div class="question">
+<label>⚠️ ¿Tenés algún requerimiento que demande previsiones particulares? (dieta especial por diabetes - celiaquía, etcétera o cualquier otra previsión)</label>
+<textarea rows="3" required></textarea>
+</div>
+
+<div class="question">
+<label>💬 Si tenés alguna duda, podés hablarnos al privado del instagram o dejar un comentario por acá 😊</label>
+<textarea rows="3"></textarea>
+</div>
+
+<button type="submit">Enviar inscripción 🚀</button>
+
+<div class="success-message" id="successMessage">
+✅ ¡Gracias por completar la inscripción!<br>
+Pronto nos pondremos en contacto con vos 🧡🔥☺️
+</div>
+
+</form>
+
+    </div>
+
+    <div class="footer">
+      <div class="footer-box">
+        <span>🔥Vengan a Ver🔥</span>
+        <small>Experiencia transformadora</small>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const form = document.querySelector("form");
+const successMessage = document.getElementById("successMessage");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  successMessage.classList.add("show");
+
+  form.reset();
+
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
+});
+</script>
+
+</body>
+</html>
