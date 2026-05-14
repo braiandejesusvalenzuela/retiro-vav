@@ -468,12 +468,42 @@ Pronto nos pondremos en contacto con vos 🧡🔥☺️
   </div>
 </div>
 
+
 <script>
 const form = document.querySelector("form");
 const successMessage = document.getElementById("successMessage");
 
+// TU URL DE APPS SCRIPT
+const scriptURL = "https://script.google.com/macros/s/AKfycbxoI2kYMvvLc0OpU0xvkDsrT_xgqpnk8wcSlFvFH-PmpuhuLmidUmfQ-1Ian8tH4-w6/exec";
+
 form.addEventListener("submit", function(e) {
   e.preventDefault();
+
+  const data = {
+    email: form.querySelector('input[type="email"]').value,
+    nombre: form.querySelectorAll('input[type="text"]')[0].value,
+    edad: form.querySelector('input[type="number"]').value,
+    nacimiento: form.querySelector('input[type="date"]').value,
+    celular: form.querySelectorAll('input[type="text"]')[1].value,
+    contactoFamiliar: form.querySelectorAll('input[type="text"]')[2].value,
+    telContacto: form.querySelectorAll('input[type="text"]')[3].value,
+    comoSeEntero: form.querySelectorAll('input[type="text"]')[4].value,
+    invitador: form.querySelectorAll('input[type="text"]')[5].value,
+    conoceAlguien: form.querySelectorAll('input[type="text"]')[6].value,
+    motivo: form.querySelectorAll('textarea')[0].value,
+    requerimientos: form.querySelectorAll('textarea')[1].value,
+    comentarios: form.querySelectorAll('textarea')[2].value
+  };
+
+fetch(scriptURL, {
+  method: "POST",
+  mode: "no-cors",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(data)
+})
+.then(() => {
 
   successMessage.classList.add("show");
 
@@ -483,6 +513,15 @@ form.addEventListener("submit", function(e) {
     top: document.body.scrollHeight,
     behavior: "smooth"
   });
+
+})
+.catch(error => {
+
+  console.error("Error:", error);
+
+  alert("Error al enviar el formulario");
+
+});
 });
 </script>
 
